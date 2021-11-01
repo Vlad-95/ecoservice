@@ -1,0 +1,134 @@
+.reviews {
+    margin-top: 29px;
+    
+    &__wrap {
+        position: relative;
+        padding-top: 26px;
+
+        &:after {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: #e9ebf0;
+            content: "";
+        }
+    }
+
+    .slider {
+        &__item {
+            &-wrap {
+                display: flex;
+            }
+
+            .content {
+                background-color: #f0eeed;
+                width: calc(100% - 371px);
+                padding: 54px 50px 43px;
+            }
+
+            .title {
+                margin: 0;
+                color: @darkBlue;
+                font-size: 25px;
+                font-weight: 600;
+            }
+
+            .wysiwyg {
+                p {
+                    color: @darkBlue;
+                    font-size: 17px;
+                    line-height: 1.8;
+                }
+            }
+
+            .footer {
+                display: flex;
+                padding: 0;
+                margin: 32px 0 0;
+
+                &__item {
+                    position: relative;
+                    font-size: 15px;
+                    color: @darkBlue;
+                    font-weight: 600;
+                    padding-right: 32px;
+                    margin-right: 15px;
+                    cursor: pointer;
+
+                    svg {
+                        width: 24px;
+                        height: 24px;
+                        position: absolute;
+                        right: 0;
+                        top: 0;
+                        bottom: 0;
+                        margin: auto;
+                        fill: @lightBlue
+                    }
+                }
+            }
+
+            .logo {
+                background-color: #f6f6f6;
+                width: 371px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            
+            
+        }
+
+        .slick-dots {
+            bottom: 54px;
+            width: calc(100% - 371px);
+            text-align: right;
+            padding-right: 65px;
+            pointer-events: none;
+
+            li {
+                width: 7px;
+                height: 7px;
+                margin: 0 4px;
+                pointer-events: all;
+
+                button {
+                    width: 7px;
+                    height: 7px;
+                    padding: 0;
+                    background-color: #8fc2e6;
+                    border-radius: 100px;
+
+                    &:before {
+                        font-family: none;
+                        color: transparent;
+                        opacity: 1;
+                        top: 0;
+                        left: -3px;
+                        bottom: 0;
+                        right: 0;
+                        margin: auto;
+                        width: 13px;
+                        height: 13px;
+                        border: 1px solid #8fc2e6;
+                        border-radius: 100px;
+                        opacity: 0;
+                        transition: 0.3s;
+                    }
+                }
+
+                &.slick-active {
+                    button {
+                        background-color: @lightBlue;
+                        &:before {
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

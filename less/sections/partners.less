@@ -1,0 +1,35 @@
+.partners {
+    margin-top: 29px;
+
+    &__wrap {
+        display: flex;
+        justify-content: space-between;
+        margin: 0 -15px;
+    }
+
+    &__item {
+        border: 1px solid #e9ebf0;
+        display: flex;
+        align-items: center;
+        padding: 9px 5px;
+        margin: 0 15px;
+
+        .logo {
+            width: 100%;
+            max-width: 85px;
+
+            img {
+                display: block;
+                margin: 0 auto;
+                max-height: 50px;
+            }
+        }
+
+        .name {
+            font-size: 14px;
+            color: @darkBlue;
+            padding: 0 10px;
+            white-space: nowrap;
+        }
+    }
+}

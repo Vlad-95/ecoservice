@@ -47,15 +47,14 @@ $(document).ready(function() {
 
     //============Мобильное меню (КОНЕЦ)
 
-    //всплывашка
-    $('.layout__item .close').click(function() {
-        //подставляем текст
-        let text = $(this).closest('.layout__item').find('.name h2').text();
-        $('.popup').find('.text span').text(text);
-        $('.popup').fadeIn();
-    })
+    //=======Слайдер ОТЗЫВЫ=============
+    if ($('.reviews').length) {
+        $('.reviews .slider').slick({
+            slidesToShow: 1,
+            dots: true,
+            arrows: false
+        })
+    }
 
-    $('.popup .close, .popup .btn').click(function() {
-        $(this).closest('.popup').fadeOut();
-    });
+    //=======Слайдер ОТЗЫВЫ КОНЕЦ=======
 });
