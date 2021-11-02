@@ -47,6 +47,24 @@ $(document).ready(function() {
 
     //============Мобильное меню (КОНЕЦ)
 
+    //======Главный слайдер==========
+    if ($('.intro').length) {
+        $('.intro .slider').slick({
+            arrows: true,
+            dots: true,
+            responsive: [
+                {
+                    breakpoint: 769, 
+                    settings: {
+                        arrows: false
+                    }
+                }
+            ]
+        })
+    }
+
+    //======Главный слайдер КОНЕЦ
+
     //=======Слайдер ОТЗЫВЫ=============
     if ($('.reviews').length) {
         $('.reviews .slider').slick({

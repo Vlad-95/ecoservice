@@ -220,30 +220,115 @@
         padding: 5px 11px 5px 11px;
         border-radius: 100px;
         position: relative;
+        margin-left: 15px;
     }
     
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1200px) {
     .feedback {
-        &__item {
-            &-input {
-                font-size: 10px;
+        .city {
+            &__current {
+                color: @white;
+                font-size: 18px;
             }
+        }
+    }
+}
 
-            &-comment {
-                font-size: 10px;
-                height: 80px;
+@media screen and (max-width: 992px) {
+    .feedback {
+
+        .sidebar {
+            width: 250px;    
+        }
+
+        .city {
+            &__current {
+                color: @white;
+                font-size: 18px;
             }
         }
 
-        &__footer {
+        .content {
+            p,
+            a {
+                font-size: 12px;
+            }
+    
+            
+        }
+    }
+
+    .form {
+        width: calc(100% - 280px);
+        padding: 40px;
+
+        &__item {    
+            &-name {
+                font-size: 12px;
+            }
+
+            &-input {
+                font-size: 12px;
+            }
+        }
+
+        &__agree {
+            &-text {
+                font-size: 12px;
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+    .feedback {
+        &__wrap {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .sidebar {
+            padding: 15px;
+            width: 100%;
+            margin-right: 0;
+            margin-bottom: 30px;
+        }
+    }
+
+    .form {
+        padding: 15px;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .form {
+        padding: 15px;
+        width: 100%;
+
+        &__row {
+            margin: 0;
             display: block;
-            margin-top: 18px;
+
+    
+            .form__item {
+                width: 100%;
+                margin: 0 0 14px;
+            }
+        }
+    
+
+        &__footer {
+            flex-direction: column;
+            align-items: flex-start;
         }
 
         &__submit {
-            margin-top: 18px;
+            margin-top: 15px;
+            margin-left: 0;
         }
     }
 }

@@ -76,10 +76,64 @@
         }
 
         .icon {
+            margin-left: auto;
+
             svg {
                 width: 110px;
                 height: 110px;
             }
+        }
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .services {
+        &__item {
+            padding: 20px;
+
+            .content {
+                padding-right: 10px;
+            }
+
+            .name {
+                font-size: 12px;
+            }
+
+            .icon {
+                svg {
+                    width: 90px;
+                    height: 90px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .services {
+        &__item {
+            .icon {
+                svg {
+                    width: 60px;
+                    height: 60px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .services {
+        &__item {
+            width: calc((100% / 2) - 30px);
+        }
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .services {
+        &__item {
+            width: calc((100% / 1) - 30px);
         }
     }
 }
