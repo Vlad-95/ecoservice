@@ -18,6 +18,8 @@
     }
 
     .city {
+        position: relative;
+
         &__current {
             color: @white;
             font-size: 20px;
@@ -39,14 +41,41 @@
             border-radius: 100px;
             top: 0;
             right: 0;
+            transition: 0.3s;
+            cursor: pointer;
+
+            &.active {
+                transform: rotate(180deg);
+                transition: 0.3s;
+            }
         }
 
         &__dropdown {
             display: none;
+            position: absolute;
+            top: calc(100% + 10px);
+            left: 0;
+            width: 100%;
+            background-color: #1778bb;
+            padding: 20px;
+            z-index: 3;
         }
 
         &__item {
             color: @white;
+            font-size: 13px;
+            text-transform: uppercase;
+            font-weight: 600;
+            display: block;
+            cursor: pointer;
+
+            &.current {
+                color: @darkBlue;
+            }
+
+            &:not(:last-of-type) {
+                margin-bottom: 20px;
+            }
         }
     }
 
@@ -104,7 +133,7 @@
             outline: none;
             padding: 10px;
             font-size: 13px;
-            color: @dark;
+            color: @white;
             font-family: @PFBeau;
 
             &::placeholder {
@@ -125,7 +154,7 @@
             padding: 10px;
             font-size: 13px;
             line-height: 1.5;
-            color: @dark;
+            color: @white;
             font-family: @PFBeau;
 
             &::placeholder {

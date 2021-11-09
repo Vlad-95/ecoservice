@@ -1,6 +1,22 @@
 .intro {
     margin-bottom: 30px;
 
+    &__wrap {
+        position: relative;
+    }
+
+    .chat-bots {
+        position: absolute;
+        right: 20px;
+        top: 19px;
+        display: flex;
+        z-index: 2;
+
+        &__item {
+            margin-left: 10px;
+        }
+    }
+
     .slider {
         &__item {
             position: relative;

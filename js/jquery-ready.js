@@ -3,35 +3,36 @@ $(document).ready(function() {
     let body = $('body')
     let windowWidth = window.innerWidth;
     let header = $('.header');
-    let headerWrap = $('.header__wrap');
-    let time = header.find('.nav__item.time');
-    let mail = header.find('.nav__item.mail');
-    let address = header.find('.nav__item.address');
-    let phone = header.find('.nav__item.phone')
+    let headerWrap = $('.header__wrap').first();
+    let headerTop = $('.header__top');
+    let headerBottom = $('.header__bottom');
+    let phone = headerTop.find('.phone');
+    let btn = headerTop.find('.btn');
+    let sites = headerTop.find('.sites');
+    let socials = headerTop.find('.socials');
+    let menu = headerBottom.find('.nav');
     let burger = $('.burger');
     let windowHeight = $(window).height();
 
     if (windowWidth <= 992) {
         //создаем контейнер для менюшки
-        let mobileMenu = $(document.createElement('div'));
-        let nav = $(document.createElement('div'));
-        mobileMenu.addClass('mobile-menu');
-        nav.addClass('nav');
+        let mobileMenu = $(document.createElement('div'));       
+        mobileMenu.addClass('mobile-menu');       
 
-        headerWrap.append(mobileMenu)
-        mobileMenu.append(nav)
+        headerWrap.append(mobileMenu);
 
         //клонируем элементы хедера
-        let mobileTime = time.clone();
-        let mobileMail = mail.clone();
-        let mobileAddress = address.clone();
         let mobilePhone = phone.clone();
+        let mobileBtn = btn.clone();
+        let mobileSites = sites.clone();
+        let mobileSocials = socials.clone();
+        let mobileNav = menu.clone();
         
-        nav.append(mobilePhone); 
-        nav.append(mobileMail);  
-        nav.append(mobileAddress);  
-        nav.append(mobileTime);   
-              
+        mobileMenu.append(mobileNav);
+        mobileMenu.append(mobilePhone);
+        mobileMenu.append(mobileBtn);
+        mobileMenu.append(mobileSites);
+        mobileMenu.append(mobileSocials);
     }
 
     function showMenu() {
@@ -46,6 +47,39 @@ $(document).ready(function() {
     burger.click(showMenu);
 
     //============Мобильное меню (КОНЕЦ)
+
+    //=====Якорные ссылки====
+    function anchorLinks () {
+        let currentLink = $(this).attr('data-anchor');
+        let currentDiv = $('[data-anchor="'+ currentLink +'"]:not(a)');        
+
+        //скролл до элемента
+        $('html, body').animate({scrollTop: currentDiv.offset().top}, 500);
+
+        if (windowWidth <= 992) {
+            let mobileMenu = $('.mobile-menu');
+
+            burger.removeClass('active');
+            body.removeClass('no-scroll');
+            mobileMenu.removeClass('active');
+        }
+    }
+
+    $('a[data-anchor]').click(anchorLinks);
+
+    //=======Все сайты======
+    if ($('.sites').length) {
+        $('.sites__toggle').click(function() {
+            $(this).toggleClass('active').next().slideToggle();
+
+            if ($(this).parent().parent().hasClass('mobile-menu')) {
+                
+            } else {
+                
+            }
+        })
+    }
+    //=======Все сайты КОНЕЦ=====
 
     //======Главный слайдер==========
     if ($('.intro .slider').length) {
@@ -146,4 +180,77 @@ $(document).ready(function() {
         })
     }
     //=======попап Консультации КОНЕЦ=========
+
+    //=====текст отзыва=======
+    if ($('.reviews').length) {
+        function truncate(str, maxlength) {
+            return (str.length > maxlength) ? str.slice(0, maxlength - 1) + '…' : str;
+        }
+
+        $('.reviews .slider__item').each(function() {
+            let text = $(this).find('.wysiwyg').html(); 
+            let truncacteText = truncate(text, 256);
+
+            //подменяем текст
+            $(this).find('.wysiwyg').html(truncacteText)
+            console.log(text)
+
+            //клик по кнопке Читать дальше
+            $(this).find('.js-review-toggle').click(function() {
+                $(this).toggleClass("open");
+
+                if ($(this).hasClass('open')) {
+                    $(this).closest('.content').find('.wysiwyg').fadeOut(100);
+
+                    setTimeout(() => $(this).closest('.content').find('.wysiwyg').html(text), 100);
+                    
+                    $(this).closest('.content').find('.wysiwyg').fadeIn();
+
+                    //$(this).text('Скрыть')
+                } else {
+                    $(this).closest('.content').find('.wysiwyg').fadeOut(100);
+
+                    setTimeout(() => $(this).closest('.content').find('.wysiwyg').html(truncacteText), 100);
+                    
+                    $(this).closest('.content').find('.wysiwyg').fadeIn();
+
+                    //$(this).text('Читать дальше')
+                }
+                
+                
+
+            })
+        })
+
+        
+    }
+    //======текст отзыва КОНЕЦ
+
+    //=======всплывашка городов в блок Свяжитесь с нами======
+    if ($('.city').length) {
+        $('.city').on('click', '.city__toggle', function() {
+            $(this).toggleClass('active').parent().next().slideToggle();
+        });
+
+        $('.city__item').click(function() {
+            let targetCity = $(this);
+            let targetCityAddress = targetCity.attr('data-address');            
+            let targetCityPhone = targetCity.attr('data-phone');
+            let targetCityTime = targetCity.attr('data-time');
+
+            let currentCity = $('.city__current');
+            let currentCityAddress = $('.sidebar .content .address');
+            let currentCityPhone = $('.sidebar .content .phone');
+            let currentCityTime = $('.sidebar .content .time');
+
+            $(this).addClass('current').siblings().removeClass('current').parent().slideUp();
+
+            currentCity.html(targetCity.text() + '<div class="city__toggle"></div>');
+            currentCityAddress.text(targetCityAddress);
+            currentCityPhone.text(targetCityPhone);
+            currentCityPhone.attr('href', 'tel:' + targetCityPhone +'')
+            currentCityTime.text(targetCityTime);
+        })
+    }
+    //=======всплывашка городов в блок Свяжитесь с нами КОНЕЦ======
 });
