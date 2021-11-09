@@ -193,7 +193,6 @@ $(document).ready(function() {
 
             //подменяем текст
             $(this).find('.wysiwyg').html(truncacteText)
-            console.log(text)
 
             //клик по кнопке Читать дальше
             $(this).find('.js-review-toggle').click(function() {
@@ -253,4 +252,40 @@ $(document).ready(function() {
         })
     }
     //=======всплывашка городов в блок Свяжитесь с нами КОНЕЦ======
+
+    //===========карта=================
+    if ($('.map').length) {
+
+        //наведение по элементам списка
+        $('.list .list__item').each(function() {
+            let currentItem = $(this);
+
+            currentItem.hover(
+                function() {
+                let dataCity = $(this).attr("data-city");                
+                $('.map .image circle[data-city='+ dataCity +']').addClass('hover');
+                }, function () {
+                    let dataCity = $(this).attr("data-city");
+                    $('.map .image circle[data-city='+ dataCity +']').removeClass('hover');
+                }
+            );
+        })
+
+        //наведение по точкам карты
+        $('.map .image circle[data-city]').each(function () {
+            $(this).hover(
+                function() {
+                    let dataCity = $(this).attr("data-city");
+                    $('.map .image circle[data-city='+ dataCity +']').addClass('hover');
+                    $('.map .list .list__item[data-city='+ dataCity +']').addClass('hover');
+
+                }, function() {
+                    let dataCity = $(this).attr("data-city");
+                    $('.map .image circle[data-city='+ dataCity +']').removeClass('hover');
+                    $('.map .list .list__item[data-city='+ dataCity +']').removeClass('hover');
+                }
+            )
+        })
+    }
+    //===========карта КОНЕЦ============
 });
