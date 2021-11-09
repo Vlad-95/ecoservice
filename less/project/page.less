@@ -1,5 +1,12 @@
 .page-title {
     padding: 34px 0 25px;
+    h2 {
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin: 0 0 9px;
+    }
+
     h1 {
         margin: 0;
         font-size: 40px;
@@ -119,7 +126,7 @@
                     background-color: @darkBlue;
                     border-radius: 100px;
                     left: 4px;
-                    top: 6px;
+                    top: 10px;
                     content: '';
                 }
                 
@@ -188,6 +195,12 @@
 
             ul {
                 font-size: 15px;
+
+                li {
+                    &:before {
+                        top: 8px;
+                    }
+                }
             }
         }
     }
@@ -239,7 +252,7 @@
 
                 li {
                     &:before {
-                        top: 4px;
+                        top: 6px;
                     }
                 }
             }

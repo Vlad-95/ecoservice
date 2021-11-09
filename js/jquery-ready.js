@@ -48,7 +48,7 @@ $(document).ready(function() {
     //============Мобильное меню (КОНЕЦ)
 
     //======Главный слайдер==========
-    if ($('.intro').length) {
+    if ($('.intro .slider').length) {
         $('.intro .slider').slick({
             arrows: true,
             dots: true,
@@ -131,4 +131,19 @@ $(document).ready(function() {
     }
     //=======попап в проектах КОНЕЦ=========
 
+
+    //=======попап Консультации=========
+    if ($('.consultant').length) {
+        $('.consultant .btn').click(function () {
+            $('.consultant-popup').fadeIn();
+
+            $('body').addClass('no-scroll');
+        })
+
+        $('.consultant-popup').on('click', '.close', function() {
+            $(this).closest('.consultant-popup').fadeOut();
+            $('body').removeClass('no-scroll');
+        })
+    }
+    //=======попап Консультации КОНЕЦ=========
 });
