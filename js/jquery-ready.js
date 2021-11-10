@@ -49,23 +49,27 @@ $(document).ready(function() {
     //============Мобильное меню (КОНЕЦ)
 
     //=====Якорные ссылки====
+
     function anchorLinks () {
-        let currentLink = $(this).attr('data-anchor');
-        let currentDiv = $('[data-anchor="'+ currentLink +'"]:not(a)');        
+        let currentLink = $(this).attr('href');
+        let currentDiv = $(currentLink);
 
-        //скролл до элемента
-        $('html, body').animate({scrollTop: currentDiv.offset().top}, 500);
+        if (currentDiv.length != 0) {
+            //скролл до элемента
+            $('html, body').animate({scrollTop: currentDiv.offset().top}, 500);
 
-        if (windowWidth <= 992) {
-            let mobileMenu = $('.mobile-menu');
+            if (windowWidth <= 992) {
+                let mobileMenu = $('.mobile-menu');
 
-            burger.removeClass('active');
-            body.removeClass('no-scroll');
-            mobileMenu.removeClass('active');
+                burger.removeClass('active');
+                body.removeClass('no-scroll');
+                mobileMenu.removeClass('active');
+            }
         }
+        
     }
 
-    $('a[data-anchor]').click(anchorLinks);
+    $('a[href^="#"]').click(anchorLinks);
 
     //=======Все сайты======
     if ($('.sites').length) {

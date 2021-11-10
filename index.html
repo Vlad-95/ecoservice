@@ -22,7 +22,7 @@
                         +7 (495) 514-02-11
                     </a>
 
-                    <a href="javascript:;" class="btn" data-anchor="feedback">Свяжитесь с нами</a>
+                    <a href="#feedback" class="btn">Свяжитесь с нами</a>
 
                     <div class="sites">
                         <div class="sites__toggle">Все сайты Росводоканал</div>
@@ -56,13 +56,13 @@
                 <nav class="nav">
                     <a href="about.html" class="nav__item">О нас</a>
                     <a href="services.html" class="nav__item">Услуги</a>
-                    <a href="javascript:;" class="nav__item" data-anchor="regions">Регионы</a>
-                    <a href="about.html" class="nav__item green">Экологичность</a>
-                    <a href="about.html" class="nav__item">Закупки</a>
+                    <a href="#regions" class="nav__item" data-anchor="true">Регионы</a>
+                    <a href="ecology.html" class="nav__item green">Экологичность</a>
+                    <a href="buy.html" class="nav__item">Закупки</a>
                     <a href="license.html" class="nav__item">Сертификаты</a>
-                    <a href="javascript:;" class="nav__item" data-anchor="reviews">Клиенты</a>
+                    <a href="#reviews" class="nav__item" data-anchor="true">Клиенты</a>
                     <a href="project.html" class="nav__item">Проекты</a>
-                    <a href="javascript:;" class="nav__item" data-anchor="feedback">Контакты</a>
+                    <a href="#feedback" class="nav__item" data-anchor="true">Контакты</a>
                 </nav>
             </div>
         </div>
@@ -212,7 +212,7 @@
             </div>
         </section>
 
-        <section class="map" data-anchor="regions">
+        <section class="map" id="regions">
             <div class="wrapper">
                 <h2 class="section-title">Экосервис на карте</h2>
 
@@ -759,8 +759,8 @@
                             <circle cx="59.027" cy="179.83" r="4"/>
                             <circle cx="70.027" cy="179.83" r="4"/>
                             <circle cx="81.027" cy="179.83" r="4"/>
-                            <circle cx="92.027" cy="179.83" r="4"/>
-                            <circle cx="103.027" cy="179.83" r="4"/>
+                            <circle data-city="lipetsk" cx="92.027" cy="179.83" r="4"/>
+                            <circle data-city="lipetsk" cx="103.027" cy="179.83" r="4"/>
                             <circle cx="114.027" cy="179.83" r="4"/>
                             <circle cx="125.027" cy="179.83" r="4"/>
                             <circle cx="136.027" cy="179.83" r="4"/>
@@ -816,8 +816,8 @@
                             <circle cx="59.027" cy="190.83" r="4"/>
                             <circle data-city="voronezh" cx="70.027" cy="190.83" r="4"/>
                             <circle data-city="voronezh" cx="81.027" cy="190.83" r="4"/>
-                            <circle cx="92.027" cy="190.83" r="4"/>
-                            <circle cx="103.027" cy="190.83" r="4"/>
+                            <circle data-city="lipetsk" cx="92.027" cy="190.83" r="4"/>
+                            <circle data-city="lipetsk" cx="103.027" cy="190.83" r="4"/>
                             <circle cx="114.027" cy="190.83" r="4"/>
                             <circle cx="125.027" cy="190.83" r="4"/>
                             <circle cx="136.027" cy="190.83" r="4"/>
@@ -916,7 +916,7 @@
                             <circle cx="576.027" cy="201.83" r="4"/>
                             <circle cx="664.027" cy="201.83" r="4"/>
                             <circle cx="675.027" cy="201.83" r="4"/>
-                            <circle cx="686.027" cy="201.83" r="4"/>
+                            <circle data-city="sahalinsk" cx="686.027" cy="201.83" r="4"/>
                             <circle cx="15.027" cy="212.83" r="4"/>
                             <circle cx="48.027" cy="212.83" r="4"/>
                             <circle cx="59.027" cy="212.83" r="4"/>
@@ -967,7 +967,7 @@
                             <circle cx="554.027" cy="212.83" r="4"/>
                             <circle cx="565.027" cy="212.83" r="4"/>
                             <circle cx="576.027" cy="212.83" r="4"/>
-                            <circle cx="686.027" cy="212.83" r="4"/>
+                            <circle data-city="sahalinsk" cx="686.027" cy="212.83" r="4"/>
                             <circle cx="59.027" cy="223.83" r="4"/>
                             <circle cx="70.027" cy="223.83" r="4"/>
                             <circle cx="81.027" cy="223.83" r="4"/>
@@ -1015,7 +1015,7 @@
                             <circle cx="543.027" cy="223.83" r="4"/>
                             <circle cx="554.027" cy="223.83" r="4"/>
                             <circle cx="565.027" cy="223.83" r="4"/>
-                            <circle cx="686.027" cy="223.83" r="4"/>
+                            <circle data-city="sahalinsk" cx="686.027" cy="223.83" r="4"/>
                             <circle cx="59.027" cy="234.83" r="4"/>
                             <circle cx="70.027" cy="234.83" r="4"/>
                             <circle cx="81.027" cy="234.83" r="4"/>
@@ -1423,7 +1423,7 @@
             </div>
         </section>
 
-        <section class="reviews" data-anchor="reviews">
+        <section class="reviews" id="reviews">
             <div class="wrapper">
                 <div class="reviews__wrap">
                     <div class="slider">
@@ -1495,7 +1495,7 @@
             </div>
         </section>
 
-        <section class="feedback" data-anchor="feedback">
+        <section class="feedback" id="feedback">
             <div class="wrapper">
                 <div class="feedback__wrap">
                     <div class="sidebar">
