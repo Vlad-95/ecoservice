@@ -11,10 +11,10 @@ const postcss = require("gulp-postcss"),
     cssDeclarationSorter = require("css-declaration-sorter"),
     postcssPresetEnv = require("postcss-preset-env"),
     cssnano = require("cssnano"),
-    less = require("gulp-less"),
-    sass = require("gulp-sass");
+    less = require("gulp-less");
+    //sass = require("gulp-sass");
 
-sass.compiler = require("node-sass");
+// sass.compiler = require("node-sass");
 
 const merge = require("merge-stream");
 
