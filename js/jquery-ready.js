@@ -98,21 +98,16 @@ $(document).ready(function() {
                     }
                 }
             ]
+        });
+
+        $('.intro .slider .slider__item').each(function() {
+            let width = $(this).find('.numb svg .stroked')[0].getBoundingClientRect().width;
+            $(this).find('.numb svg').width(width);
+            $(this).find('.numb svg').attr('viewBox', `0 0 ${width + 10} 72`);
         })
     }
 
     //======Главный слайдер КОНЕЦ
-
-    //=======Слайдер ОТЗЫВЫ=============
-    if ($('.reviews').length) {
-        $('.reviews .slider').slick({
-            slidesToShow: 1,
-            dots: true,
-            arrows: false
-        })
-    }
-
-    //=======Слайдер ОТЗЫВЫ КОНЕЦ=======
 
     //=======одинаковая высота текстовых блоков========
     if ($('.license').length) {
@@ -191,12 +186,35 @@ $(document).ready(function() {
             return (str.length > maxlength) ? str.slice(0, maxlength - 1) + '…' : str;
         }
 
-        $('.reviews .slider__item').each(function() {
-            let text = $(this).find('.wysiwyg').html(); 
-            let truncacteText = truncate(text, 256);
+        $('.reviews .slider').slick({
+            slidesToShow: 1,
+            dots: true,
+            arrows: false
+        })
+
+        $('.reviews .slider').on('beforeChange', function(event, slick, currentSlide, nextSlide){
+            let text = $(`.slider__item[data-slick-index="${currentSlide}"]`).find('.wysiwyg').html();
+            let truncateText = truncate(text, 256);
 
             //подменяем текст
-            $(this).find('.wysiwyg').html(truncacteText)
+            if ($(`.slider__item[data-slick-index="${currentSlide}"]`).find('.js-review-toggle').hasClass('open')) {
+                $(`.slider__item[data-slick-index="${currentSlide}"]`).find('.js-review-toggle').removeClass('open');
+
+                $(`.slider__item[data-slick-index="${currentSlide}"]`).find('.content .wysiwyg').fadeOut(100);
+    
+                setTimeout(() => $(`.slider__item[data-slick-index="${currentSlide}"]`).find('.content .wysiwyg').html(truncateText), 100);
+                
+                $(`.slider__item[data-slick-index="${currentSlide}"]`).find('.content .wysiwyg').fadeIn();
+            }            
+        });
+
+        $('.reviews .slider__item').each(function() {
+            let text = $(this).find('.wysiwyg').html(); 
+            let truncateText = truncate(text, 256);
+
+            //подменяем текст
+            $(this).find('.wysiwyg').html(truncateText)
+            
 
             //клик по кнопке Читать дальше
             $(this).find('.js-review-toggle').click(function() {
@@ -213,15 +231,12 @@ $(document).ready(function() {
                 } else {
                     $(this).closest('.content').find('.wysiwyg').fadeOut(100);
 
-                    setTimeout(() => $(this).closest('.content').find('.wysiwyg').html(truncacteText), 100);
+                    setTimeout(() => $(this).closest('.content').find('.wysiwyg').html(truncateText), 100);
                     
                     $(this).closest('.content').find('.wysiwyg').fadeIn();
 
                     //$(this).text('Читать дальше')
                 }
-                
-                
-
             })
         })
 

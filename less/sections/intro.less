@@ -61,6 +61,17 @@
                         color: @darkBlue;
                         margin: 0;                        
                         letter-spacing: -17px;
+
+                        &.mobile {
+                            font-size: 27px;
+                            font-weight: 900;
+                            letter-spacing: 0;
+                            color: @white;
+                            display: none;
+                            position: absolute;
+                            top: 35px;
+                            left: calc(100% - 15px);
+                        }
                     }
 
                     svg {
@@ -70,7 +81,7 @@
                         letter-spacing: 12px;
 
                         .stroked {
-                            font-size: 60px;
+                            font-size: 50px;
                             font-weight: 700;
                             stroke: @white;
                             stroke-width: 15;
@@ -79,7 +90,7 @@
                         }
 
                         .text {
-                            font-size: 60px;
+                            font-size: 50px;
                             font-weight: 700;
                             fill: @lightBlue;
                         }
@@ -292,6 +303,34 @@
                     
                     .numb {
                         left: 0;
+
+                        span {
+                            &.mobile {
+                                display: block;
+                            }
+                        }
+
+                        svg {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .intro {
+        .slider { 
+            &__item {
+                .content {
+                    .numb {
+                        span {
+                            &.mobile {
+                               font-size: 20px;
+                            }
+                        }
                     }
                 }
             }
